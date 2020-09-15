@@ -8,6 +8,7 @@ const fn_index=async(ctx,next)=>{
 }
 
 const fn_sign=async(ctx,next)=>{
+    console.log(ctx.request.body)
     const name=ctx.request.body.name||'';
     const password=ctx.request.body.password||'';
     if(name=='koa'&&password=='1234567'){
