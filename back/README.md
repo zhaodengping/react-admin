@@ -30,6 +30,11 @@ npm install koa-bodyparser
 
 `koa-bodyparser`必须是`router`之前被注册到`app`上
 
+```
+const bodyParser = require('koa-bodyparser');
+app.use(bodyParser())
+```
+
 ## koa-cors
 
 安装
