@@ -4,8 +4,8 @@
   "description": "安装",
   "main": "app.js",
   "dependencies": {
-    "koa-bodyparser": "^4.3.0",
     "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
     "koa-cors": "^0.0.16",
     "koa-router": "^9.4.0",
     "mysql": "^2.18.1"

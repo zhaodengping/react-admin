@@ -24,8 +24,8 @@ function App() {
     }
     console.log(data)
     axios({
-      url:"http://localhost:4000/sign",
-      method:"POST",
+      url:"http://localhost:4000/login",
+      method:"post",
       data
     }).then(res=>{
       console.log(res)
