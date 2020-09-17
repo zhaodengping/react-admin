@@ -3,16 +3,10 @@ import Home from '../views/Home/Home'
 
 const routes=[{
     path:'/',
-    component:Login
+    component:Home
 },{
-    path:'/login',
-    component:Login
-},{
-    path:"/home",
-    component:Home,
-    routes:[{
-        path:'/home'
-    }]
+    path:'/Home',
+    component:Home
 }]
 
 export default routes
