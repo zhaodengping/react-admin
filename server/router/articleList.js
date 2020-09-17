@@ -1,10 +1,9 @@
 const db=require('../db/index')
 
-exports.login=async ctx=>{
-    const {name,password}=ctx.request.body
-    const sql='SELECT * FROM t_user WHERE name=? and password=?';
-    const value=[name,password];
-    await db.query(sql,value).then(res=>{
+exports.articleList=async ctx=>{
+    const sql='SELECT * FROM t_article_list';
+    await db.query(sql).then(res=>{
+        console.log(res)
         if(res.length>0){
             ctx.response.body={
                 success:true,
@@ -17,4 +16,4 @@ exports.login=async ctx=>{
             }
         }
     })
-}
+} 
