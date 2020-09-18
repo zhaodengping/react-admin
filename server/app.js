@@ -9,6 +9,4 @@ app.use(async(ctx,next)=>{
 }).listen(4000) 
 app.use(bodyParser())
 app.use(cors())
-
-
 app.use(router.routes())
