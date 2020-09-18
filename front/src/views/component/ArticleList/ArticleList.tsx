@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react'
-import http from '../../../assets/utils/http'
+import {httpWithCookie} from '../../../assets/utils/http'
 import { List, Space } from 'antd'
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 import './articleList.scss'
@@ -20,7 +20,7 @@ export default function ArticleList() {
         let postData = {
             url: "/articleList",
         }
-        http(postData).then(res => {
+        httpWithCookie(postData).then(res => {
             res.forEach(item=>{
                 item.time=item.create_time.split('T')[0]
             })
@@ -44,7 +44,7 @@ export default function ArticleList() {
             },
             method:"POST"
         }
-        http(postData).then(res => {
+        httpWithCookie(postData).then(res => {
             console.log(res)
             getList()
         })

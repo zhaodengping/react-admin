@@ -15,7 +15,7 @@ export default function Nav(){
         }
     }
     useEffect(() => {
-        getUserInfo()
+        // getUserInfo()
     }, []);
 
     function getUserInfo(){

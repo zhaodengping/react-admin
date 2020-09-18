@@ -6,6 +6,8 @@ exports.login=async ctx=>{
     const value=[name,password];
     await db.query(sql,value).then(res=>{
         if(res.length>0){
+            ctx.session.user=name
+            console.log(ctx.session.user)
             ctx.response.body={
                 success:true,
                 data:res[0]

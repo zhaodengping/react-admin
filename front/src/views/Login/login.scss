@@ -1,0 +1,21 @@
+.login-border{
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50vw;
+    height: 50%;
+    border: 1px solid #6666;
+    border-radius: 4px;
+    text-align: center;
+    &:hover{
+        box-shadow: #6666 0 0 10px ;
+    }
+    >.login-content{
+        margin-top: 10%;
+        >.login-title{
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+    }
+   
+}
