@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div>
             <Nav />
-            <div  className="content">
+            <div  className="home-content">
                 <ArticleList />
             </div>
         </div>

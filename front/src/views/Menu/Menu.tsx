@@ -15,10 +15,7 @@ export default function Menu(){
                     <Link to='/login'>导航1</Link>
                 </li>
             </ul>
-            <Switch>
-                {routes.map((item,index)=>{
-                    return <Route render={item.component} path={item.path} key={index}></Route>
-                })}
+            <Switch> 
             </Switch>
         </Router>
     )
