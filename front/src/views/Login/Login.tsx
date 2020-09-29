@@ -4,16 +4,8 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import http from '../../assets/utils/http'
 import './login.scss'
-function getData(){
-    http({url:"/articleList"}).then(res=>{
-        console.log(res)
-    })
-}
 function Login() {
     let history = useHistory()
-    // useEffect(() => {
-    //     getData()
-    // }, []);
 
     const layout = {
         labelCol: {
@@ -30,16 +22,16 @@ function Login() {
         },
     };
     function onFinish(values) {
-        let data = {
-            name: values.mallBackendUserName,
-            password: values.mallBackendUserPwd
+        let postData={
+            url:'/login',
+            data:{
+                name: values.mallBackendUserName,
+                password: values.mallBackendUserPwd
+            },
+            method:"POST"
         }
-        console.log(data)
-        axios({
-            url: "http://localhost:4000/login",
-            method: "post",
-            data
-        }).then(res => {
+        http(postData).then(res => {
+            localStorage.userInfo=JSON.stringify(res)
             history.push('/home')
         }).catch(err => {
             console.log(err)

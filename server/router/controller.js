@@ -5,7 +5,7 @@ const agree=require('./agree')
 let router=require('koa-router')();
 
 router.post('/login',login.login)
-router.get('/articleList',articleList.articleList)
+router.post('/articleList',articleList.articleList)
 router.post('/agree',agree.agree)
 
 module.exports=router

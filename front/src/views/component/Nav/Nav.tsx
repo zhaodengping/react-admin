@@ -1,47 +1,30 @@
-import React,{useReducer,useEffect} from 'react';
+import React,{useState} from 'react';
 import { Button, Input, Space } from 'antd';
-import http from '../../../assets/utils/http'
 import './nav.scss';
 import { useHistory } from 'react-router-dom';
+import PubSub from 'pubsub-js'
 const { Search } = Input;
+
+
 
 export default function Nav(){
     let history=useHistory()
-    const [userInfo,dispatch] = useReducer(reducer,{})
-    function reducer(state,action){
-        switch (action.type){
-            case 'init':
-                return {...state,...action.payload}
-        }
-    }
-    useEffect(() => {
-        // getUserInfo()
-    }, []);
-
-    function getUserInfo(){
-        const postData={
-            url:"/login",
-            method:'POST',
-            data:{
-                name:"行侠仗义的小龙女",
-                password:'123'
-            }
-        }
-        http(postData).then(res=>{
-            dispatch({type:"init",payload:res})
-        })
-    }
+    const userInfo=JSON.parse(localStorage.userInfo)
     function login(){
         history.push('/login')
+        localStorage.userInfo=null;
+    }
+    function search(e:string){
+        PubSub.publish('searchData',e)
     }
 
     return(
         <div className="title">
-            <div>{userInfo.name}</div>
+            <div className='userInfo'>{userInfo.name}</div>
             <div>
                 <Space>
-                    <Search placeholder="代码改变世界" onSearch={value => console.log(value)}  style={{ width: 200 }}/>
-                    <Button onClick={login}>登录</Button>
+                    <Search placeholder="代码改变世界" onSearch={(e:string)=>search(e)}  style={{ width: 200 }} allowClear/>
+                    <Button onClick={login}>注销</Button>
                 </Space>
             </div>
         </div>
