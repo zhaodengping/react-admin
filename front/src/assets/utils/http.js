@@ -18,7 +18,6 @@ export default function http({url,method='GET',data={}}){
         })
     })
 }
-
 export function httpWithCookie({url,method='GET',data={}}){
     return new Promise((resolve,reject)=>{
         axios.defaults.withCredentials=true

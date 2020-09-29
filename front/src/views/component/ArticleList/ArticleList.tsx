@@ -45,7 +45,6 @@ export default function ArticleList() {
             method:"POST"
         }
         httpWithCookie(postData).then(res => {
-            console.log(res)
             getList()
         })
     }

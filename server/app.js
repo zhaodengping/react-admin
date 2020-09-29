@@ -3,17 +3,16 @@ const koa=require('koa');
 const app=new koa();
 const router=require('./router/controller') 
 const bodyParser = require('koa-bodyparser');
-const cors=require('koa-cors')
+// const cors=require('koa-cors')
 // 配置跨域
-// app.use(async (ctx, next) => {
-//     console.log(ctx.header)
-//     ctx.header.set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
-//     ctx.header.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     ctx.header.set('Access-Control-Allow-Methods', 'PUT,DELETE,POST,GET');
-//     ctx.header.set('Access-Control-Allow-Credentials', true);
-//     ctx.header.set('Access-Control-Max-Age', 3600 * 24);
-//     await next();
-// }),
+app.use(async (ctx, next) => {
+    ctx.set('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With')
+    ctx.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    ctx.set('Access-Control-Allow-Methods', 'PUT,DELETE,POST,GET');
+    ctx.set('Access-Control-Allow-Credentials', true);
+    ctx.set('Access-Control-Max-Age', 3600 * 24);
+    await next();
+}),
 app.keys=['some secret hurr']
 const config={
     key: 'koa:sess', /** cookie的名称，可以不管 */
@@ -37,6 +36,6 @@ app.use(async(ctx,next)=>{
     await next() 
 })
 app.use(bodyParser())
-app.use(cors())
+// app.use(cors())
 app.use(router.routes())
 app.listen(4000)
