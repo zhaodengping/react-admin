@@ -2,7 +2,7 @@ import React, { useEffect, useReducer,useState } from 'react'
 import {httpWithCookie} from '../../../assets/utils/http'
 import { List, Space } from 'antd'
 import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
-import PubSub from 'pubsub-js'
+import PupSub from 'pubsub-js'
 import './articleList.scss'
 
 

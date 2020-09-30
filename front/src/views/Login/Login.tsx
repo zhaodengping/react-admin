@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Form, Input, Button, Space } from 'antd'
-import axios from 'axios'
 import { useHistory } from 'react-router-dom';
 import http from '../../assets/utils/http'
 import './login.scss'
